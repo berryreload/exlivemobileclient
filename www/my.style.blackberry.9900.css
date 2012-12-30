@@ -1,0 +1,27 @@
+/*************************************************************/
+/* home page grid style begin *********************************/
+/* center icons */
+.ui-grid-a { text-align: center; }
+.ui-grid-b { text-align: center; }
+		
+/* set row height，和 icon-img-home 的图片宽度配合！ */
+.ui-block-a, .ui-block-b, .ui-block-c { height: 170px; position: relative; }
+
+/* set icon image height 尽管图片大小不一，这里可以做统一缩放 */
+.icon-img-home { width: 110px;}
+
+/* set icon label size and color */
+.icon-label { color: black; display: block; font-size:28px; }
+.icon-label-disable { color: white; display: block; font-size:28px; }
+
+/* position icons at the bottom of the block to adjust for uneven icon heights */
+.icon-springboard { position: absolute; bottom: 0; width: 100%; }
+
+/* home page grid style end  *********************************/
+/*************************************************************/
+
+.content-springboard { height : 340px ;}
+
+a:link,	a:visited, a:hover, a:active { text-decoration:none; }
+
+.map_canvas { width:100%; height:330px; }

@@ -1,0 +1,380 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,target-densitydpi=device-dpi,user-scalable=no,initial-scale=1.0">﻿
+	<title>移动作业</title>
+<style type="text/css">  
+</style> 
+
+	<script type="text/javascript">
+
+	</script>
+	
+    <!-- begin of includes scripts         ************************ -->
+	<link rel="stylesheet"        href="jqm/jquery.mobile-1.2.0.min.css" /> 
+	<link rel="stylesheet"        href="my.style.blackberry.webkit.scroll.css" /> 
+	
+	<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&language=zh_CN"></script>
+
+	<script type="text/javascript" src="jqm/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript">
+	</script>
+	<script type="text/javascript" src="my.jquery.mobile.init.js"></script>
+	<script type="text/javascript" src="jqm/jquery.mobile-1.2.0.min.js"></script>
+	<script type="text/javascript" src="json2.js"></script>
+	<script type="text/javascript" src="base64.js"></script>
+	<script type="text/JavaScript" src="my.workforce.js"></script>
+	<script type="text/JavaScript" src="gps.js"></script>
+	<!-- end of includes scripts           ************************ -->
+	
+</head> 
+<body> 
+
+<div data-role="page" id="page_login" data-theme="e" >
+	<div data-role="header">
+		<h1>移动作业：登录</h1>
+	</div>
+
+	<div data-role="content" class="content-springboard">
+		<ul id = "xxx" data-role="listview">
+			<li>
+				<label for="yonghm">服务器</label>
+        		<input type="text" name="page_login_server" id="page_login_server" value="shanghai.springworks.info" disabled="disabled" placeholder="服务器IP地址" />
+			</li>	
+			<li>
+				<label for="yonghm">用户名</label>
+        		<input type="text" name="page_login_username" id="page_login_username" value="" placeholder="用户名(字母和数字)" />
+			</li>	
+			<li>
+				<label for="yonghm">口令</label>
+        		<input type="password" name="page_login_password" id="page_login_password" value="" placeholder="口令(字母和数字)" />
+			</li>	
+		</ul>				
+		</br> 
+		<a href="#" data-role="button" style="width:200px;" data-inline="true" onclick="exliveLOGIN();"data-icon="check">登录</a>
+		<a href="#" data-role="button" style="width:200px;" data-inline="true" onclick="page_login_reset();"data-icon="refresh">重置</a>
+		
+    </div>
+
+	<div data-role="footer" data-position="fixed">
+      <div><h4 id="page_login_status">BlackBerry 企业安全移动解决方案专家</h4>
+      </div>
+    </div>
+</div>
+
+<div data-role="page" id="home" >
+	<div data-role="header">
+		<h1>移动作业</h1>
+	</div>
+
+	<div data-role="content" class="content-springboard" id="scroll">
+		<div class="ui-grid-b">
+			<div class="ui-block-a">
+			  	<div class="icon-springboard">
+			   		<a href="#mylocation" data-transition="flip">
+				  		<img class="icon-img-home" src="images/loc.png" alt="位置">
+				  		<span class="icon-label">位置</span>
+			    	</a>
+			  	</div>
+			</div>	
+			
+			<div class="ui-block-b">
+			   	<div class="icon-springboard">	
+			  		<a href="#mysettings" data-transition="slide">
+						<img class="icon-img-home" src="images/setting.png" alt="设置">
+						<span class="icon-label">设置</span>
+			  		</a>
+			  	</div>
+			</div>
+			
+			<div class="ui-block-c">
+			  	<div style="position: absolute; bottom: 0; width:100%;">
+			  		<a href="#page_barcode" data-transition="slide">
+						<img class="icon-img-home" src="images/barcode.png" alt="条码">
+						<span class="icon-label">条码扫描</span>
+				  	</a>	
+			  	</div>
+			</div>	
+			
+			<div class="ui-block-a">
+			  	<div style="position: absolute; bottom: 0; width:100%;">
+			  		<a href="#">
+				  		<img class="icon-img-home" src="images/msg.png" alt="信箱">
+						<span class="icon-label-disable">信箱</span>
+			  		</a>
+			  	</div>
+			</div>
+
+			<div class="ui-block-b">
+			  	<div style="position: absolute; bottom: 0; width:100%;">
+			  		<a href="#">
+						<img class="icon-img-home" src="images/add_custom.png" alt="添加客户">
+						<span class="icon-label-disable">添加客户</span>
+			  		</a>	
+			  	</div>
+			</div>	
+			
+			<div class="ui-block-c">
+			  	<div style="position: absolute; bottom: 0; width:100%;">
+			  		<a href="#">
+						<img class="icon-img-home" src="images/add_mark.png" alt="添加标注">
+						<span class="icon-label-disable">添加标注</span>
+			  		</a>
+			  	</div>
+			</div>
+			
+			<div class="ui-block-a">
+			  	<div style="position: absolute; bottom: 0; width:100%;">
+			  		<a href="#">
+						<img class="icon-img-home" src="images/camera.png" alt="拍照">
+						<span class="icon-label-disable">拍照</span>
+			  		</a>	
+			  	</div>
+			</div>	
+			
+			<div class="ui-block-b">
+			  	<div style="position: absolute; bottom: 0; width:100%;">
+				 	<a href="#">
+						<img class="icon-img-home" src="images/log.png" alt="工单">
+						<span class="icon-label-disable">工单</span>
+			  		</a>
+			  	</div>
+			</div>
+			
+			<div class="ui-block-c">
+			  	<div style="position: absolute; bottom: 0; width:100%;">
+			  		<a href="#" onclick="fn_exit();">
+						<img class="icon-img-home" src="images/exit.png" alt="退出">
+						<span class="icon-label">退出</span>
+			  		</a>	
+			  	</div>
+			</div>	
+		</div>
+	</div>
+
+    <div data-role="footer" data-position="fixed">
+      <div><h4 id="myhome_status">BlackBerry 企业安全移动解决方案专家</h4>
+      </div>
+    </div>
+
+</div>
+
+
+<div data-role="page" id="mylocation" >
+	<div data-role="header">
+		<h1>我的位置</h1>
+		<a id="signin_button" onclick="exliveSIGNIN();" style="width:160px;" href="#" data-icon="check" class="ui-btn-left">签到</a>
+		<!-- checkLocationToUpdateMap -->
+		<a onclick="checkLocationToUpdateMap();" style="width:100px;" href="#" data-icon="refresh" class="ui-btn-right">刷新</a>
+	</div>
+
+	<div data-role="content" class="content-springboard">
+      <div id="map_canvas" class="map_canvas">
+      </div>
+    </div>
+    
+    <div data-role="footer" data-position="fixed">
+      <div><h4 id="currentLocation">正在检查网络连接。。。</h4>
+      </div>
+    </div>
+</div>
+
+<div data-role="page" id="mysettings" >
+	<div data-role="header">
+		<h1>设置</h1>
+	</div>
+
+	<div data-role="content" class="content-springboard">
+		<ul data-role="listview" data-inset="true">
+			<li>
+			  <a href="#mysettings_account" data-transition="slide">
+				<img src="images/sign.png" class="ui-li-icon"/>
+				<h3>帐号</h3>
+			  </a>
+			</li>	
+			<li>
+			  <a href="#mysettings_theme" data-transition="slide">
+				<img src="images/setting.png" class="ui-li-icon"/>
+				<h3>主题</h3>
+			  </a>
+			</li>	
+			<li>
+			  <a href="#mysettings_alert" data-transition="slide">
+				<img src="images/setting.png" class="ui-li-icon"/>
+				<h3>提醒</h3>
+			  </a>
+			</li>	
+		</ul>				
+    </div>
+    
+    <div data-role="footer" data-position="fixed">
+      <div><h4 id="mysettings_status">BlackBerry 企业安全移动解决方案专家</h4>
+      </div>
+    </div>
+</div>
+	
+<div data-role="page" id="mysettings_account" >
+	<div data-role="header">
+		<h1>帐号设置</h1>
+		<a onclick="mysettings_account_save();" href="#" data-icon="check" class="ui-btn-left">保存</a>
+		<a onclick="mysettings_account_reset();" href="#" data-icon="back" class="ui-btn-right">重置</a>
+	</div>
+
+	<div data-role="content" class="content-springboard">
+		<ul id = "xxx" data-role="listview" data-inset="true">
+			<li>
+				<label for="yonghm">服务器</label>
+        		<input type="text" name="mysettings_account_server" id="mysettings_account_server" value="shanghai.springworks.info" disabled="disabled" placeholder="服务器IP地址" />
+			</li>	
+			<li>
+				<label for="yonghm">用户名</label>
+        		<input type="text" name="mysettings_account_username" id="mysettings_account_username" value="" placeholder="用户名(字母和数字)" />
+			</li>	
+			<li>
+				<label for="yonghm">口令</label>
+        		<input type="password" name="mysettings_account_password" id="mysettings_account_password" value="" placeholder="口令(字母和数字)" />
+			</li>	
+		</ul>				
+    </div>
+    
+    <div data-role="footer" data-position="fixed">
+      <div><h4 id="mysettings_account_status">我的帐号</h4>
+      </div>
+    </div>
+</div>
+
+<div data-role="page" id="mysettings_alert" >
+	<div data-role="header">
+		<h1>提醒方式</h1>
+		<a onclick="mysettings_alert_save();" href="#" data-icon="check" class="ui-btn-left">保存</a>
+	</div>
+
+	<div data-role="content" class="content-springboard">
+		<ul data-role="listview" data-inset="true">
+			<li>
+			    <fieldset data-role="controlgroup">
+		    		<legend>工单提醒</legend>
+		  			<input type="radio" name="choice_alert_task" id="choice_alert_task_viberate" value="0" />
+		         	<label for="choice_alert_task_viberate">震动</label>
+		
+		         	<input type="radio" name="choice_alert_task" id="choice_alert_task_sound" value="1" />
+		         	<label for="choice_alert_task_sound">声音</label>
+		
+		         	<input type="radio" name="choice_alert_task" id="choice_alert_task_silence" value="2" />
+		         	<label for="choice_alert_task_silence">静默</label>
+			    </fieldset>
+			</li>	
+			<li>
+			    <fieldset data-role="controlgroup">
+		    		<legend>消息提醒</legend>
+		  			<input type="radio" name="choice_alert_msg" id="choice_alert_msg_viberate" value="0" />
+		         	<label for="choice_alert_msg_viberate">震动</label>
+		
+		         	<input type="radio" name="choice_alert_msg" id="choice_alert_msg_sound" value="1" />
+		         	<label for="choice_alert_msg_sound">声音</label>
+		
+		         	<input type="radio" name="choice_alert_msg" id="choice_alert_msg_silence" value="2"  />
+		         	<label for="choice_alert_msg_silence">静默</label>
+			    </fieldset>
+			</li>	
+		</ul>				
+    </div>
+    
+    <div data-role="footer" data-position="fixed">
+      <div><h4 id="mysettings_alert_status">提醒方式</h4>
+      </div>
+    </div>
+</div>
+
+<div data-role="page" id="mysettings_theme" >
+	<div data-role="header">
+		<h1>界面主题</h1>
+		<a onclick="mysettings_theme_save();" href="#" data-icon="check" class="ui-btn-left">保存</a>
+	</div>
+
+	<div data-role="content" class="content-springboard">
+		<ul data-role="listview" data-inset="true">
+			<li>
+			    <fieldset data-role="controlgroup">
+		    		<legend>请选择主题</legend>
+		  			<input type="radio" name="choices_mysettings_theme" id="choices_mysettings_theme_a" value="0" data-theme="a" />
+		         	<label for="choices_mysettings_theme_a">黑灰色</label>
+
+		  			<input type="radio" name="choices_mysettings_theme" id="choices_mysettings_theme_f" value="1" data-theme="f" />
+		         	<label for="choices_mysettings_theme_f">暗灰色</label>
+		         	
+					<input type="radio" name="choices_mysettings_theme" id="choices_mysettings_theme_b" value="2" data-theme="b" />
+		         	<label for="choices_mysettings_theme_b">蓝色</label>
+		
+		  			<input type="radio" name="choices_mysettings_theme" id="choices_mysettings_theme_c" value="3" data-theme="c" />
+		         	<label for="choices_mysettings_theme_c">亮灰色</label>
+
+		  			<input type="radio" name="choices_mysettings_theme" id="choices_mysettings_theme_e" value="4" data-theme="e" />
+		         	<label for="choices_mysettings_theme_e">黄色</label>
+
+			    </fieldset>
+			</li>	
+		</ul>				
+    </div>
+    
+    <div data-role="footer" data-position="fixed">
+      <div><h4 id="mysettings_theme_status">主题设置</h4>
+      </div>
+    </div>
+</div>
+
+<div data-role="page" id="mysettings_network" >
+	<div data-role="header">
+		<h1>网络设置</h1>
+		<a onclick="mysettings_nework_save();" href="#" data-icon="check" class="ui-btn-left">保存</a>
+	</div>
+
+	<div data-role="content" class="content-springboard">
+		<ul data-role="listview" data-inset="true">
+			<li>
+			    <fieldset data-role="controlgroup">
+		    		<legend>请选择网络</legend>
+		  			<input type="radio" name="choices_mysettings_network" id="choices_mysettings_network_BES" value="Map" checked="checked" />
+		         	<label for="choices_mysettings_network_BES">BES黑莓网络</label>
+		
+		         	<input type="radio" name="choices_mysettings_network" id="choices_mysettings_network_WIFI" value="Satellite" />
+		         	<label for="choices_mysettings_network_WIFI">WiFi无线</label>
+		
+		         	<input type="radio" name="choices_mysettings_network" id="choices_mysettings_network_Carrier" value="Hybrid"  />
+		         	<label for="choices_mysettings_network_Carrier">运营商网络</label>
+			    </fieldset>
+			</li>	
+		</ul>				
+    </div>
+    
+    <div data-role="footer" data-position="fixed">
+      <div><h4 id="mysettings_network">联网方式</h4>
+      </div>
+    </div>
+</div>
+
+<div data-role="page" id="page_barcode" >
+	<div data-role="header">
+		<h1>条码扫描</h1>
+		<a onclick="doScan();" href="#" data-icon="check" class="ui-btn-left">扫描</a>
+	</div>
+
+	<div data-role="content" class="content-springboard" style="text-align:center; vertical-align:middle; ">
+		
+		<h1 id="scan_result">准备扫描</h1>
+		
+		<img src="images\beginScan.jpg" width="240" id="imgScan" ontouchstart="doScan()" />	<p/>   
+	</div>
+
+    
+    <div data-role="footer" data-position="fixed">
+      <div><h4 id="barcode_status">条码扫描</h4>
+      </div>
+    </div>
+	
+</div>
+
+</body>
+</html>

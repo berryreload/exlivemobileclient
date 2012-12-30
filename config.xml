@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" 
+        xmlns:rim="http://www.blackberry.com/ns/widgets" 
+        version="1.0.5" rim:backButton="exit">
+        
+  <name>Mobile Workforce</name>
+  <description>1.0.5: google map v3; 1.0.4: check in and check out, continued GPS reports to server; GPS history tracking and playback on server web application via google map; 1.0.3: barcode scan; outdoor GPS location, login exlive server; 1.0.2: user choose UI theme, loading screen, online update, bug report; 1.0.1: page transition; 1.0.0: indoor geolocation, google map static image, push listener. </description>
+  <author 
+        email="jiyang@rim.com">Jiang Yang</author>
+  
+  <!-- BlackBerry WebWorks API - smartphone -->
+  <feature id="blackberry.find" required="true" version="1.0.0.0" />
+  <feature id="blackberry.identity" required="true" version="1.0.0.0" />
+  <feature id="blackberry.pim.Address" required="true" version="1.0.0.0" />
+  <feature id="blackberry.pim.Contact" required="true" version="1.0.0.0" />
+  <feature id="blackberry.io.file" required="true" version="1.0.0.0" />
+  <feature id="blackberry.utils" required="true" version="1.0.0.0" />
+  <feature id="blackberry.io.dir" required="true" version="1.0.0.0" />
+  <feature id="blackberry.invoke.BrowserArguments" required="true" version="1.0.0.0" />
+  <feature id="blackberry.invoke.MessageArguments" required="true" version="1.0.0.0" />
+  <feature id="blackberry.invoke" required="true" version="1.0.0.0" />
+  <feature id="blackberry.app" required="true" version="1.0.0.0" />
+  <feature id="blackberry.app.event" required="true" version="1.0.0.0" />
+  <feature id="blackberry.system" required="true" version="1.0.0.0" />
+  <feature id="blackberry.system.event" required="true" version="1.0.0.0"/>
+  <feature id="blackberry.widgetcache" required="true" version="1.0.0.0"/>
+  <feature id="blackberry.media.camera" required="true" version="1.0.0.0"/>
+  <feature id="blackberry.ui.dialog" required="true" version="1.0.0.0"/>
+  <feature id="blackberry.ui.menu" required="true" version="1.0.0.0"/>
+  <feature id="blackberry.push" required="true" version="1.0.0.0"/>
+  <feature id="blackberry.message" required="true" version="1.0.0.0"/>
+  <!-- BlackBerry WebWorks API - extended -->
+  <feature id="blackberry.system.log" required="true" version="1.0.0.0"/>
+  <feature id="webworks.media.barcode" required="true" version="1.0.0.0"/>
+  
+  <!-- for developer only, disable browser cache, good for development testing, not for production -->
+  <!--<rim:cache disableAllCache="true" />   -->
+  
+  <!-- application has access to all other domains for content -->
+  <access subdomains="true" uri ="*"/>
+  
+  <!-- for developer only -->
+  <!-- <content src="file:///SDCard/mobileworkforce/www/index.html"/>  -->
+  <content src="www/index.html"/>
+  
+  <icon rim:hover="false" src="res\img\icon.png"/>
+  <rim:loadingScreen backgroundImage="loadingScreen_backgroundImage.png" foregroundImage="loading.gif" onLocalPageLoad="true" onFirstLaunch="true"/>
+  <!-- <rim:navigation mode="focus"/>  -->
+</widget>
